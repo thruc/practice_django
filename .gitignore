@@ -116,3 +116,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+
+# settings
+config/settings.prod.py

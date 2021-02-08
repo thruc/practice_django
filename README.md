@@ -1,1 +1,1 @@
-"# practice_django" 
+"# config" 
