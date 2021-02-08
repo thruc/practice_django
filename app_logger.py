@@ -9,9 +9,9 @@ import inspect
 logging = getLogger(__name__)
 
 # MESSAGE_FORMAT
-FUNC_STRAT = '{0[0]} {0[1]} STRAT'
-FUNC_END = '{0[0]} {0[1]} END'
-FUNC_LOCATION = '{0[0]} {0[1]} LINE:{0[2]}'
+FUNC_STRAT = '[STRAT] {}'
+FUNC_END = '[END] {}'
+FUNC_LOCATION = '[LINE] {}'
 
 LOG_INFO = "I"
 LOG_WARNING = "W"
@@ -34,6 +34,10 @@ def output(msg_format: str, *msg_array):
         logging.debug(msg_format.format(msg_array))
     else:
         logging.info(msg_format.format(msg_array))
+
+def log_helper(msg_format: str, *msg_tuple):
+    msg = ' '.join(msg_tuple)
+    return msg_format.format(msg)
 
 
 def location():
