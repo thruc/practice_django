@@ -135,16 +135,16 @@ class Query(graphene.ObjectType):
     all_employees = DjangoFilterConnectionField(EmployeeNode)
     all_departments = DjangoFilterConnectionField(DepartmentNode)
 
-    #@login_required
+    @login_required
     def resolve_employee(self, info, **kwargs):
         id = kwargs.get('id')
         if id is not None:
             return Employee.objects.get(id=from_global_id(id)[1])
 
-    #@login_required
+    @login_required
     def resolve_all_employees(self, info, **kwargs):
         return Employee.objects.all()
 
-    #@login_required
+    @login_required
     def resolve_all_departments(self, info, **kwargs):
         return Department.objects.all()
